@@ -16,6 +16,7 @@
   - [Change your name and contact info in the footer](#change-your-name-and-contact-info-in-the-footer)
   - [Change Bootswatch theme](#change-bootswatch-theme)
   - [Change navigation bar colors](#change-navigation-bar-colors)
+  - [Change home page text](#change-home-page-text--button)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
   
 ## First time
@@ -241,6 +242,32 @@ documentation](https://dash-bootstrap-components.opensource.faculty.ai/l/compone
 > `light` _(boolean, optional)_: Applies the `navbar-light` class to the NavbarSimple, causing text in the children of the Navbar to use dark colors for contrast / visibility.
 
 > `dark` _(boolean, optional)_: Applies the `navbar-dark` class to the NavbarSimple, causing text in the children of the Navbar to use light colors for contrast / visibility.
+
+### Change home page text & button
+
+Edit `pages/index.py` file, `column1` object:
+
+```python
+column1 = dbc.Col(
+    [
+        dcc.Markdown(
+            """
+        
+            ## Value Proposition
+
+            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
+
+            ✅ RUN is a running app that adapts to your fitness levels and designs personalized workouts to help you improve your running.
+
+            ❌ RUN is the only intelligent running app that uses sophisticated deep neural net machine learning to make your run smarter because we believe in ML driven workouts.
+
+            """
+        ),
+        dcc.Link(dbc.Button('Call To Action', color='primary'), href='/predictions')
+    ],
+    md=4,
+)
+```
 
 ### Exit the Pipenv shell
 ```
