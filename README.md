@@ -13,7 +13,8 @@
   - [Launch Jupyter Notebook](#launch-jupyter-notebook)
   - [Change the app name in the browser title bar](#change-the-app-name-in-the-browser-title-bar)
   - [Change the app name in the navigation bar](#change-the-app-name-in-the-navigation-bar)
-  - [Add your name and contact info in the footer](#add-your-name-and-contact-info-in-the-footer)
+  - [Change your name and contact info in the footer](#change-your-name-and-contact-info-in-the-footer)
+  - [Change Bootswatch theme](#change-bootswatch-theme)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
   
 ## First time
@@ -155,7 +156,7 @@ navbar = dbc.NavbarSimple(
 )
 ```
 
-### Add your name and contact info in the footer
+### Change your name and contact info in the footer
 
 Edit `run.py` file, `footer` object:
 
@@ -176,6 +177,44 @@ footer = dbc.Container(
         )
     )
 )
+```
+
+### Change Bootswatch theme
+
+Browse themes at https://bootswatch.com/
+
+- `dbc.themes.BOOTSTRAP`
+- `dbc.themes.CERULEAN`
+- `dbc.themes.COSMO`
+- `dbc.themes.CYBORG`
+- `dbc.themes.DARKLY`
+- `dbc.themes.FLATLY`
+- `dbc.themes.JOURNAL`
+- `dbc.themes.LITERA`
+- `dbc.themes.LUMEN`
+- `dbc.themes.LUX`
+- `dbc.themes.MATERIA`
+- `dbc.themes.MINTY`
+- `dbc.themes.PULSE`
+- `dbc.themes.SANDSTONE`
+- `dbc.themes.SIMPLEX`
+- `dbc.themes.SKETCHY`
+- `dbc.themes.SLATE`
+- `dbc.themes.SOLAR`
+- `dbc.themes.SPACELAB`
+- `dbc.themes.SUPERHERO`
+- `dbc.themes.UNITED`
+- `dbc.themes.YETI`
+
+Edit `app.py`, `external_stylesheets` parameter:
+
+```python
+external_stylesheets = [
+    dbc.themes.BOOTSTRAP, # Bootswatch theme
+    'https://use.fontawesome.com/releases/v5.9.0/css/all.css', # for social media icons
+]
+
+app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 ```
 
 ### Exit the Pipenv shell
