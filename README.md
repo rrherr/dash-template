@@ -88,6 +88,7 @@ python run.py
 Then in your browser, go to http://localhost:8050/
 
 ### Launch Jupyter Notebook
+First, [activate the Pipenv shell](#activate-the-pipenv-shell)! Then:
 ```
 jupyter notebook
 ```
