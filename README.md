@@ -17,7 +17,7 @@
 ### Requirements
 You need this software on your local computer:
 
-- A **terminal**. If you're on Windows, I recommend [Git Bash](https://gitforwindows.org/).
+- A **terminal**. If you're on Windows, I recommend [Git Bash](https://gitforwindows.org/). If you're on Mac or Linux, a terminal is built in.
 - **Python 3**. I recommend [Anaconda Distribution](https://www.anaconda.com/distribution/).
 - An **IDE** (Integrated Development Environment) or text editor. I recommend [VS Code](https://code.visualstudio.com/).
 
