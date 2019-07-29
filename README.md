@@ -136,9 +136,7 @@ jupyter notebook
 
 ### Change page titles in the browser title bar
 
-Edit `app.py`
-- `display_page` function
-    - `app.title = '...'` lines
+Edit `app.py` file, `display_page` function, `app.title = '...'` lines
 
 ```python
 @app.callback(Output('page-content', 'children'),
