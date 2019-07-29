@@ -16,7 +16,7 @@
   - [Change your name and contact info in the footer](#change-your-name-and-contact-info-in-the-footer)
   - [Change Bootswatch theme](#change-bootswatch-theme)
   - [Change navigation bar colors](#change-navigation-bar-colors)
-  - [Change home page text](#change-home-page-text--button)
+  - [Change home page text & button](#change-home-page-text--button)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
   
 ## First time
