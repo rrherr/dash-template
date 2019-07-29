@@ -324,7 +324,7 @@ This layout is explained in [Dash Bootstrap Components docs](https://dash-bootst
 from pages import index, predictions, insights, process, <pagename>
 ```
 
-**3.** Edit `run.py` file, `display_page` function. Return `<pagename>.layout` for `/<pagename>` URL.
+**3.** Edit `run.py` file, `display_page` function. Return `<pagename>.layout` when `pathname == '/<pagename>'`.
 
 ```python
 @app.callback(Output('page-content', 'children'),
@@ -364,7 +364,7 @@ navbar = dbc.NavbarSimple(
 
 2. Edit `run.py` file. Do not import `<pagename>` from the `pages` module.
 
-3. Edit `run.py` file, `display_page` function. Remove the code block that returns `<pagename>.layout` for `/<pagename>` URL.
+3. Edit `run.py` file, `display_page` function. Remove the code block that returns `<pagename>.layout` when `pathname == '/<pagename>'`
 
 4. Delete the file, `pages/<pagename>.py`
 
