@@ -17,6 +17,8 @@
   - [Change Bootswatch theme](#change-bootswatch-theme)
   - [Change navigation bar colors](#change-navigation-bar-colors)
   - [Change home page text & button](#change-home-page-text--button)
+  - [Add a page](#add-a-page)
+  - [Remove a page](#remove-a-page)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
   
 ## First time
@@ -275,6 +277,96 @@ column1 = dbc.Col(
 - [`dbc.Button`](https://dash-bootstrap-components.opensource.faculty.ai/l/components/button)
 
 The RUN app example comes from [Google's People + AI Guidebook](https://pair.withgoogle.com/chapter/mental-models/).
+
+### Add a page
+
+**1.** Make a new file, `pages/<pagename>.py`
+
+The code should have an object named `layout`, with a Dash component assigned to it. For example:
+
+```python
+import dash
+import dash_bootstrap_components as dbc
+import dash_core_components as dcc
+import dash_html_components as html
+from dash.dependencies import Input, Output
+
+from app import app
+
+column1 = dbc.Col(
+    [
+        dcc.Markdown(
+            """
+        
+            ## PAGE NAME
+
+
+            """
+        ),
+    ],
+    md=4,
+)
+
+column2 = dbc.Col([])
+
+layout = dbc.Row([column1, column2])
+```
+
+This layout is explained in [Dash Bootstrap Components docs](https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout):
+
+> The Bootstrap grid has twelve columns. The layout of your app should be built as a series of rows of columns.
+
+> We set `md=4 indicating that on a 'medium' sized or larger screen each column should take up a third of the width. Since we don't specify behaviour on smaller size screens Bootstrap will allow the rows to wrap so as not to squash the content.
+
+**2.** Edit `run.py` file. Import `<pagename>` from the `pages` module.
+
+```python
+from pages import index, predictions, insights, process, <pagename>
+```
+
+**3.** Edit `run.py` file, `display_page` function. Return `<pagename>.layout` for `/<pagename>` URL.
+
+```python
+@app.callback(Output('page-content', 'children'),
+              [Input('url', 'pathname')])
+def display_page(pathname):
+    if pathname == '/':
+        return index.layout
+    elif pathname == '/predictions':
+        return predictions.layout
+    elif pathname == '/insights':
+        return insights.layout
+    elif pathname == '/process':
+        return process.layout
+    elif pathname == '/pagename':
+        return pagename.layout
+    else:
+        return dcc.Markdown('## Page not found')
+```
+
+**4.** Edit `run.py` file, `navbar` object. Add a `dbc.NavItem` & `dcc.Link` for the page.
+
+```python
+navbar = dbc.NavbarSimple(
+    children=[
+        dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
+        dbc.NavItem(dcc.Link('Page Name', href='/pagename', classname='nav-link')), 
+    ],
+    ...
+)
+```
+
+### Remove a page
+
+1. Edit `run.py` file, `navbar` object. Remove the `dbc.NavItem` & `dcc.Link` objects for the page.
+
+2. Edit `run.py` file. Do not import `<pagename>` from the `pages` module.
+
+3. Edit `run.py` file, `display_page` function. Remove the code blocck that returns `<pagename>.layout` for `/<pagename>` URL.
+
+4. Delete the file, `pages/<pagename>.py`
 
 ### Exit the Pipenv shell
 ```
