@@ -8,6 +8,7 @@
   - [Activate the Pipenv shell](#activate-the-pipenv-shell)
 - [How to](#how-to)
   - [Run the app](#run-the-app)
+  - [See installed packages](#see-installed-packages)
   - [Install packages](#install-packages)
   - [Launch Jupyter Notebook](#launch-jupyter-notebook)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
@@ -88,6 +89,32 @@ python run.py
 
 Then in your browser, go to http://localhost:8050/
 
+### See installed packages
+```
+cat Procfile
+```
+
+You will see output like this:
+```
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+
+[packages]
+dash = "*"
+dash-bootstrap-components = "*"
+gunicorn = "*"
+plotly = "*"
+jupyter = "*"
+pandas = "*"
+
+[requires]
+python_version = "3.7"
+```
+
 ### Install packages
 ```
 pipenv install <package>
@@ -108,9 +135,3 @@ jupyter notebook
 ```
 exit
 ```
-
-
-
-
-
-
