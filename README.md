@@ -15,6 +15,7 @@
   - [Change the app name in the navigation bar](#change-the-app-name-in-the-navigation-bar)
   - [Change your name and contact info in the footer](#change-your-name-and-contact-info-in-the-footer)
   - [Change Bootswatch theme](#change-bootswatch-theme)
+  - [Change navigation bar colors](#change-navigation-bar-colors)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
   
 ## First time
@@ -206,7 +207,7 @@ Browse themes at https://bootswatch.com/
 - `dbc.themes.UNITED`
 - `dbc.themes.YETI`
 
-Edit `app.py`, `external_stylesheets` parameter:
+Edit `app.py` file, `external_stylesheets` parameter:
 
 ```python
 external_stylesheets = [
@@ -216,6 +217,30 @@ external_stylesheets = [
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 ```
+
+### Change navigation bar colors
+
+First, choose your [Bootswatch theme](#change-bootswatch-theme).
+
+Then, edit `run.py` file, `navbar` object, `color`, `light` & `dark` parameters:
+
+```python
+navbar = dbc.NavbarSimple(
+    ...
+    color='light', 
+    light=True, 
+    dark=False
+)
+```
+
+These parameters are explained in [Dash Bootstrap Components
+documentation](https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar):
+
+> `color` _(string, optional)_: Sets the color of the NavbarSimple. Main options are primary, light and dark, default light. You can also choose one of the other contextual classes provided by Bootstrap (secondary, success, warning, danger, info, white) or any valid CSS color of your choice (e.g. a hex code, a decimal code or a CSS color name)
+
+> `light` _(boolean, optional)_: Applies the `navbar-light` class to the NavbarSimple, causing text in the children of the Navbar to use dark colors for contrast / visibility.
+
+> `dark` _(boolean, optional)_: Applies the `navbar-dark` class to the NavbarSimple, causing text in the children of the Navbar to use light colors for contrast / visibility.
 
 ### Exit the Pipenv shell
 ```
