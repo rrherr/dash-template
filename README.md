@@ -234,8 +234,7 @@ navbar = dbc.NavbarSimple(
 )
 ```
 
-These parameters are explained in [Dash Bootstrap Components
-documentation](https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar):
+These parameters are explained in [Dash Bootstrap Components docs](https://dash-bootstrap-components.opensource.faculty.ai/l/components/navbar):
 
 > `color` _(string, optional)_: Sets the color of the NavbarSimple. Main options are primary, light and dark, default light. You can also choose one of the other contextual classes provided by Bootstrap (secondary, success, warning, danger, info, white) or any valid CSS color of your choice (e.g. a hex code, a decimal code or a CSS color name)
 
@@ -268,6 +267,13 @@ column1 = dbc.Col(
     md=4,
 )
 ```
+
+#### Docs
+- [`dbc.Col`](https://dash-bootstrap-components.opensource.faculty.ai/l/components/layout)
+- [`dcc.Markdown`](https://dash.plot.ly/dash-core-components/markdown)
+- [`dcc.Link`](https://dash.plot.ly/urls)
+- [`dbc.Button`](https://dash-bootstrap-components.opensource.faculty.ai/l/components/button)
+
 
 ### Exit the Pipenv shell
 ```
