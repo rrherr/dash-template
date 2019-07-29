@@ -96,7 +96,7 @@ Ctrl+C quits the app.
 cat Procfile
 ```
 
-You will see output like this:
+You'll see output like this:
 ```
 [[source]]
 name = "pypi"
