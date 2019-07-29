@@ -71,14 +71,19 @@ app.layout = html.Div([
               [Input('url', 'pathname')])
 def display_page(pathname):
     if pathname == '/':
+        app.title = 'App — Home'
         return index.layout
     elif pathname == '/predictions':
+        app.title = 'App — Predictions'
         return predictions.layout
     elif pathname == '/insights':
+        app.title = 'App — Insights'
         return insights.layout
     elif pathname == '/process':
+        app.title = 'App — Process'
         return process.layout
     else:
+        app.title = 'App — Page not found'
         return dcc.Markdown('## Page not found')
 
 if __name__ == '__main__':
