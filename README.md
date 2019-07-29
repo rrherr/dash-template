@@ -183,6 +183,8 @@ footer = dbc.Container(
 )
 ```
 
+Dash components use the `className` parameter for CSS classes. The classes that start with `fa` are for [Font Awesome's icons](https://fontawesome.com/icons/github-square?style=brands). The classes with `mr` stands for "margin right" and are from [Bootstrap](https://getbootstrap.com/docs/4.3/utilities/spacing/). The class `lead` is also from [Bootstrap](https://getbootstrap.com/docs/4.1/content/typography/#lead) to make "lead" paragraphs stand out more. 
+
 ### Change Bootswatch theme
 
 Browse themes at https://bootswatch.com/
@@ -324,7 +326,7 @@ This layout is explained in [Dash Bootstrap Components docs](https://dash-bootst
 from pages import index, predictions, insights, process, <pagename>
 ```
 
-**3.** Edit `run.py` file, `display_page` function. Return `<pagename>.layout` when `pathname == '/<pagename>'`.
+**3.** Edit `run.py` file, `display_page` function. Return `<pagename>.layout` when `pathname == '/<pagename>'`
 
 ```python
 @app.callback(Output('page-content', 'children'),
