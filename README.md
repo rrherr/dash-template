@@ -344,7 +344,7 @@ def display_page(pathname):
         return dcc.Markdown('## Page not found')
 ```
 
-**4.** Edit `run.py` file, `navbar` object. Add a `dbc.NavItem` & `dcc.Link` for the page.
+**4.** Edit `run.py` file, `navbar` object. Add `dbc.NavItem` & `dcc.Link` objects for the page.
 
 ```python
 navbar = dbc.NavbarSimple(
