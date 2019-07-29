@@ -316,7 +316,7 @@ This layout is explained in [Dash Bootstrap Components docs](https://dash-bootst
 
 > The Bootstrap grid has twelve columns. The layout of your app should be built as a series of rows of columns.
 
-> We set `md=4 indicating that on a 'medium' sized or larger screen each column should take up a third of the width. Since we don't specify behaviour on smaller size screens Bootstrap will allow the rows to wrap so as not to squash the content.
+> We set `md=4` indicating that on a 'medium' sized or larger screen each column should take up a third of the width. Since we don't specify behaviour on smaller size screens Bootstrap will allow the rows to wrap so as not to squash the content.
 
 **2.** Edit `run.py` file. Import `<pagename>` from the `pages` module.
 
