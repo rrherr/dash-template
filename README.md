@@ -8,6 +8,7 @@
   - [Activate the Pipenv shell](#activate-the-pipenv-shell)
 - [How to](#how-to)
   - [Run the app](#run-the-app)
+  - [Launch Jupyter Notebook](#launch-jupyter-notebook)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
   
 ## First time
@@ -85,6 +86,11 @@ python run.py
 ```
 
 Then in your browser, go to http://localhost:8050/
+
+### Launch Jupyter Notebook
+```
+jupyter notebook
+```
 
 ### Exit the Pipenv shell
 ```
