@@ -364,7 +364,7 @@ navbar = dbc.NavbarSimple(
 
 2. Edit `run.py` file. Do not import `<pagename>` from the `pages` module.
 
-3. Edit `run.py` file, `display_page` function. Remove the code blocck that returns `<pagename>.layout` for `/<pagename>` URL.
+3. Edit `run.py` file, `display_page` function. Remove the code block that returns `<pagename>.layout` for `/<pagename>` URL.
 
 4. Delete the file, `pages/<pagename>.py`
 
