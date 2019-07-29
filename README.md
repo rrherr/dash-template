@@ -134,7 +134,7 @@ pipenv install scikit-learn category_encoders xgboost dash_daq
 ```
 
 ### Launch Jupyter Notebook
-First, [activate the Pipenv shell](#activate-the-pipenv-shell). Then:
+First, don't forget to [activate the Pipenv shell](#activate-the-pipenv-shell). Then:
 ```
 jupyter notebook
 ```
