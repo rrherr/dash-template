@@ -274,6 +274,7 @@ column1 = dbc.Col(
 - [`dcc.Link`](https://dash.plot.ly/urls)
 - [`dbc.Button`](https://dash-bootstrap-components.opensource.faculty.ai/l/components/button)
 
+The RUN app example comes from [Google's People + AI Guidebook](https://pair.withgoogle.com/chapter/mental-models/).
 
 ### Exit the Pipenv shell
 ```
