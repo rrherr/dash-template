@@ -11,9 +11,9 @@
   - [See installed packages](#see-installed-packages)
   - [Install packages](#install-packages)
   - [Launch Jupyter Notebook](#launch-jupyter-notebook)
+  - [Change the app name in the browser title bar](#change-the-app-name-in-the-browser-title-bar)
   - [Change the app name in the navigation bar](#change-the-app-name-in-the-navigation-bar)
   - [Add your name and contact info in the footer](#add-your-name-and-contact-info-in-the-footer)
-  - [Change the browser title bar](#change-the-browser-title-bar)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
   
 ## First time
@@ -136,6 +136,14 @@ First, [activate the Pipenv shell](#activate-the-pipenv-shell). Then:
 jupyter notebook
 ```
 
+### Change the app name in the browser title bar
+
+Edit `app.py` file, `app.title` string:
+
+```python
+app.title = 'YOUR APP NAME' # appears in browser title bar
+```
+
 ### Change the app name in the navigation bar
 
 Edit `run.py` file, `navbar` object, `brand` string:
@@ -168,31 +176,6 @@ footer = dbc.Container(
         )
     )
 )
-```
-
-### Change the browser title bar
-
-Edit `app.py` file, `display_page` function, `app.title = '...'` lines:
-
-```python
-@app.callback(Output('page-content', 'children'),
-              [Input('url', 'pathname')])
-def display_page(pathname):
-    if pathname == '/':
-        app.title = 'Your App Name — Home'
-        return index.layout
-    elif pathname == '/predictions':
-        app.title = 'Your App Name — Predictions'
-        return predictions.layout
-    elif pathname == '/insights':
-        app.title = 'Your App Name — Insights'
-        return insights.layout
-    elif pathname == '/process':
-        app.title = 'Your App Name — Process'
-        return process.layout
-    else:
-        app.title = 'Your App Name — Page not found'
-        return dcc.Markdown('## Page not found')
 ```
 
 ### Exit the Pipenv shell
