@@ -89,6 +89,8 @@ python run.py
 
 Then in your browser, go to http://localhost:8050/
 
+Ctrl+C quits the app.
+
 ### See installed packages
 ```
 cat Procfile
