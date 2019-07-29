@@ -323,7 +323,7 @@ This layout is explained in [Dash Bootstrap Components docs](https://dash-bootst
 **2.** Edit `run.py` file. Import `<pagename>` from the `pages` module.
 
 ```python
-from pages import index, predictions, insights, process, <pagename>
+from pages import index, predictions, insights, process, pagename
 ```
 
 **3.** Edit `run.py` file, `display_page` function. Return `<pagename>.layout` when `pathname == '/<pagename>'`
