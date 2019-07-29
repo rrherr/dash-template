@@ -11,7 +11,9 @@
   - [See installed packages](#see-installed-packages)
   - [Install packages](#install-packages)
   - [Launch Jupyter Notebook](#launch-jupyter-notebook)
-  - [Change page titles in the browser title bar](#change-page-titles-in-the-browser-title-bar)
+  - [Change the app name in the navigation bar](#change-the-app-name-in-the-navigation-bar)
+  - [Add your name and contact info in the footer](#add-your-name-and-contact-info-in-the-footer)
+  - [Change the browser title bar](#change-the-browser-title-bar)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
   
 ## First time
@@ -134,9 +136,43 @@ First, [activate the Pipenv shell](#activate-the-pipenv-shell). Then:
 jupyter notebook
 ```
 
-### Change page titles in the browser title bar
+### Change the app name in the navigation bar
 
-Edit `app.py` file, `display_page` function, `app.title = '...'` lines
+Edit `run.py` file, `navbar` object, `brand` string:
+
+```python
+navbar = dbc.NavbarSimple(
+    brand='YOUR APP NAME',
+    ...
+)
+```
+
+### Add your name and contact info in the footer
+
+Edit `run.py` file, `footer` object:
+
+```python
+footer = dbc.Container(
+    dbc.Row(
+        dbc.Col(
+            html.P(
+                [
+                    html.Span('Your Name', className='mr-2'), 
+                    html.A(html.I(className='fas fa-envelope-square mr-1'), href='mailto:<you>@<provider>.com'), 
+                    html.A(html.I(className='fab fa-github-square mr-1'), href='https://github.com/<you>/<repo>'), 
+                    html.A(html.I(className='fab fa-linkedin mr-1'), href='https://www.linkedin.com/in/<you>/'), 
+                    html.A(html.I(className='fab fa-twitter-square mr-1'), href='https://twitter.com/<you>'), 
+                ], 
+                className='lead'
+            )
+        )
+    )
+)
+```
+
+### Change the browser title bar
+
+Edit `app.py` file, `display_page` function, `app.title = '...'` lines:
 
 ```python
 @app.callback(Output('page-content', 'children'),
