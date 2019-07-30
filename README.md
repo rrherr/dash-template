@@ -19,6 +19,8 @@
   - [Change home page text & button](#change-home-page-text--button)
   - [Add a page](#add-a-page)
   - [Remove a page](#remove-a-page)
+  - [Add an image](#add-an-image)
+  - [Add a scikit-learn pipeline](#add-a-scikit-learn-pipeline)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
   
 ## First time
@@ -369,6 +371,39 @@ navbar = dbc.NavbarSimple(
 3. Edit `run.py` file, `display_page` function. Remove the code block that returns `<pagename>.layout` when `pathname == '/<pagename>'`
 
 4. Delete the file, `pages/<pagename>.py`
+
+### Add an image
+
+1. Put the image file `<imagefile.extension>` in the `assets/` directory.
+
+2. Edit the file, `pages/<pagename>.py`. Add a [Dash HTML](https://dash.plot.ly/dash-html-components) Img component in the layout:
+
+```python
+html.Img(src='assets/imagefile.extension', className='img-fluid')
+```
+
+You can size and position images [with Boostrap](https://getbootstrap.com/docs/4.0/content/images/) (for example, with the `img-fluid` class) or just [with CSS](https://dash.plot.ly/getting-started).
+
+### Add a scikit-learn pipeline
+
+1. [Activate the Pipenv shell](#activate-the-pipenv-shell)
+2. [Install packages](#install-packages) (scikit-learn, anything else you want)
+3. [Launch Jupyter Notebook](#launch-jupyter-notebook)
+4. In your notebook, fit your pipeline, then ["pickle" it](https://scikit-learn.org/stable/modules/model_persistence.html):
+
+```python
+from joblib import dump
+dump(pipeline, 'pipeline.joblib')
+```
+
+5. Copy the file `pipeline.joblib` into the `assets/` directory.
+
+6. Edit the file, `pages/<pagename>.py`. Add this code at the top, to load the pipeline.
+
+```python
+from joblib import load
+pipeline = load('assets/pipeline.joblib')
+```
 
 ### Exit the Pipenv shell
 ```
