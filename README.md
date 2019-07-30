@@ -389,20 +389,103 @@ You can size and position images [with Boostrap](https://getbootstrap.com/docs/4
 1. [Activate the Pipenv shell](#activate-the-pipenv-shell)
 2. [Install packages](#install-packages) (scikit-learn, anything else you want)
 3. [Launch Jupyter Notebook](#launch-jupyter-notebook)
-4. In your notebook, fit your pipeline, then ["pickle" it](https://scikit-learn.org/stable/modules/model_persistence.html):
+4. In your notebook, fit your pipeline. For example:
+
+```python
+import category_encoders as ce
+import plotly.express as px
+from sklearn.linear_model import LinearRegression
+from sklearn.pipeline import make_pipeline
+
+gapminder = px.data.gapminder()
+X = gapminder[['year', 'continent']]
+y = gapminder['lifeExp']
+
+pipeline = make_pipeline(
+    ce.OneHotEncoder(use_cat_names=True), 
+    LinearRegression()
+)
+
+pipeline.fit(X, y)
+```
+
+5. ["Pickle" the pipeline](https://scikit-learn.org/stable/modules/model_persistence.html):
 
 ```python
 from joblib import dump
 dump(pipeline, 'pipeline.joblib')
 ```
 
-5. Copy the file `pipeline.joblib` into the `assets/` directory.
+6. Copy the file `pipeline.joblib` into the `assets/` directory.
 
-6. Edit the file, `pages/<pagename>.py`. Add this code at the top, to load the pipeline.
+7. Edit the file, `pages/<pagename>.py`. Add this code at the top, to load the pipeline.
 
 ```python
 from joblib import load
 pipeline = load('assets/pipeline.joblib')
+```
+
+8. Add [Dash components](https://dash.plot.ly/dash-core-components) for inputs. For example:
+
+```python
+column1 = dbc.Col(
+    [
+        dcc.Markdown('## Predictions', className='mb-5'), 
+        dcc.Markdown('#### Year'), 
+        dcc.Slider(
+            id='year', 
+            min=1955, 
+            max=2055, 
+            step=5, 
+            value=2020, 
+            marks={n: str(n) for n in range(1960,2060,20)}, 
+            className='mb-5', 
+        ), 
+        dcc.Markdown('#### Continent'), 
+        dcc.Dropdown(
+            id='continent', 
+            options = [
+                {'label': 'Africa', 'value': 'Africa'}, 
+                {'label': 'Americas', 'value': 'Americas'}, 
+                {'label': 'Asia', 'value': 'Asia'}, 
+                {'label': 'Europe', 'value': 'Europe'}, 
+                {'label': 'Oceania', 'value': 'Oceania'}, 
+            ], 
+            value = 'Africa', 
+            className='mb-5', 
+        ), 
+    ],
+    md=4,
+)
+```
+
+9. Add Dash component for output. For example:
+
+```python
+column2 = dbc.Col(
+    [
+        html.H2('Expected Lifespan', className='mb-5'), 
+        html.Div(id='prediction-content', className='lead')
+    ]
+)
+```
+
+10. Add [callback](https://dash.plot.ly/getting-started-part-2) to update output based on inputs. For example:
+
+```python
+import pandas as pd
+
+@app.callback(
+    Output('prediction-content', 'children'),
+    [Input('year', 'value'), Input('continent', 'value')],
+)
+def predict(year, continent):
+    df = pd.DataFrame(
+        columns=['year', 'continent'], 
+        data=[[year, continent]]
+    )
+    y_pred = pipeline.predict(df)[0]
+    return f'{y_pred:.0f} years'
 ```
 
 ### Exit the Pipenv shell
