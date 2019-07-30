@@ -22,6 +22,7 @@
   - [Add an image](#add-an-image)
   - [Add a scikit-learn pipeline](#add-a-scikit-learn-pipeline)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
+- [Deploy to Heroku](#deploy-to-heroku)
   
 ## First time
 
@@ -492,3 +493,43 @@ def predict(year, continent):
 ```
 exit
 ```
+
+## Deploy to Heroku
+
+1. Watch [DS - Data Engineering - Productization and Cloud - Web Application Deployment](https://www.youtube.com/watch?v=W75JAe7vFF0) (12 minute video from Training Kit).
+
+2. Sign up for Heroku at https://signup.heroku.com/ for a free account.
+
+> If you are registered with the GitHub Student Developer Pack, you are eligible to receive one free Hobby Dyno for up to 2 years (valued at $84/year). (App never sleeps) — https://www.heroku.com/github-students
+
+3. Download and install Heroku CLI (Command Line Interface) https://devcenter.heroku.com/articles/heroku-cli
+
+4. [Change directory into the repo](#change-directory-into-the-repo) & [activate the Pipenv shell](#activate-the-pipenv-shell).
+
+5. Test your app locally, with [Gunicorn](https://gunicorn.org/):
+
+```
+gunicorn index:server
+```
+
+(Note, on Windows, there may be problems with Gunicorn, so you don't have to test locally with it, instead you can just use `python index.py` like before.)
+
+6. Go to https://dashboard.heroku.com/new-app and give your app a name.
+
+7. Follow the commands that Heroku gives you! For example:
+
+```
+heroku login
+
+heroku git:remote -a your-app-name
+
+git push heroku master
+```
+
+Then Heroku will deploy your web app and give you the URL!
+
+How does Heroku know what to do? Because of these files in the repo:
+
+- `Pipfile.lock`: tells Heroku what libraries & versions to install
+- `Procfile`: tells Heroku what command to run
+- `.slugignore`: tells Heroku what files to ignore
