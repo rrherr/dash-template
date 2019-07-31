@@ -516,17 +516,21 @@ gunicorn run:server
 
 6. Go to https://dashboard.heroku.com/new-app and give your app a name.
 
-7. Follow the commands that Heroku gives you! For example:
+7. Follow the commands that Heroku gives you. For example:
 
 ```
 heroku login
 
 heroku git:remote -a your-app-name
+```
 
+8. [Deploy](https://devcenter.heroku.com/articles/getting-started-with-python?singlepage=true#deploy-the-app) to Heroku:
+
+```
 git push heroku master
 ```
 
-Then Heroku will deploy your web app and give you the URL!
+Then Heroku will set up everything, launch your app, and give you the URL!
 
 How does Heroku know what to do? Because of these files in the repo:
 
