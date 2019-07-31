@@ -509,10 +509,10 @@ exit
 5. Test your app locally, with [Gunicorn](https://gunicorn.org/):
 
 ```
-gunicorn index:server
+gunicorn run:server
 ```
 
-(Note, on Windows, there may be problems with Gunicorn, so you don't have to test locally with it, instead you can just use `python index.py` like before.)
+(Note, on Windows, there may be problems with Gunicorn, so you don't have to test locally with it, instead you can just use `python run.py` like before.)
 
 6. Go to https://dashboard.heroku.com/new-app and give your app a name.
 
@@ -530,6 +530,6 @@ Then Heroku will deploy your web app and give you the URL!
 
 How does Heroku know what to do? Because of these files in the repo:
 
-- `Pipfile.lock`: tells Heroku what libraries & versions to install
-- `Procfile`: tells Heroku what command to run
-- `.slugignore`: tells Heroku what files to ignore
+- `Pipfile.lock` tells Heroku what libraries & versions to install
+- `Procfile` tells Heroku what command to run
+- `.slugignore` tells Heroku what files to ignore
