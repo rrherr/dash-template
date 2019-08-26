@@ -29,8 +29,9 @@
 ### Requirements
 You need this software on your local computer:
 
-- A **terminal**. If you're on Windows, I recommend [Git Bash](https://gitforwindows.org/). If you're on Mac or Linux, a terminal is built in.
 - **Python 3**. I recommend [Anaconda Distribution](https://www.anaconda.com/distribution/).
+- **Git**. If you're on Windows, I recommend [Git Bash](https://gitforwindows.org/). If you're on Mac or Linux, Git is built in.
+- A **terminal**. If you're on Windows, I recommend [Anaconda Prompt](https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-prompt-win). If you're on Mac or Linux, a terminal is built in.
 - An **IDE** (Integrated Development Environment) or text editor. I recommend [VS Code](https://code.visualstudio.com/).
 
 You also need to install [**Pipenv**](https://pipenv.readthedocs.io/en/latest/).
@@ -54,6 +55,8 @@ Change directory into the repo:
 ```
 cd <repo>
 ```
+
+<div style="color: red">If you're on Windows, delete the `Pipfile.lock` file.</div>
 
 Create a virtual environment for this project, and install dependencies from Pipfile.lock:
 ```
