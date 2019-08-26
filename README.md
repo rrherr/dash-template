@@ -30,7 +30,7 @@
 You need this software on your local computer:
 
 - **Python 3**. I recommend [Anaconda Distribution](https://www.anaconda.com/distribution/).
-- **Git**. If you're on Windows, I recommend [Git Bash](https://gitforwindows.org/). If you're on Mac or Linux, Git is built in.
+- **Git**. If you're on Windows, I recommend [Git for Windows](https://gitforwindows.org/). If you're on Mac or Linux, Git is built in.
 - A **terminal**. If you're on Windows, I recommend [Anaconda Prompt](https://docs.anaconda.com/anaconda/user-guide/getting-started/#open-prompt-win). If you're on Mac or Linux, a terminal is built in.
 - An **IDE** (Integrated Development Environment) or text editor. I recommend [VS Code](https://code.visualstudio.com/).
 
