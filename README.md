@@ -396,7 +396,7 @@ This includes visualization libraries that run on top of Matplotlib:
 - Seaborn
 - SHAP `force_plot` with `matplotlib=True` parameter
 
-#### Option 1. Take a screenshot / save the plot as an image
+#### Option 1: Take a screenshot / save the plot as an image
 
 First, you should set matplotlib dots per inch to at least 150, so the text isn't fuzzy.
 
@@ -407,7 +407,7 @@ plt.rcParams['figure.dpi'] = 150
 
 Then take a screenshot or save the plot as an image, and follow the instructions to [add an image](#add-an-image).
 
-#### Option 2. [Convert matplotlib figures to Plotly figures](https://plot.ly/matplotlib/modifying-a-matplotlib-figure/).
+#### Option 2: [Convert matplotlib figures to Plotly figures](https://plot.ly/matplotlib/modifying-a-matplotlib-figure/)
 
 Get it working in your notebook first. For example:
 
