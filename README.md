@@ -20,6 +20,8 @@
   - [Add a page](#add-a-page)
   - [Remove a page](#remove-a-page)
   - [Add an image](#add-an-image)
+  - [Add a matplotlib plot](#add-a-matplotlib-plot)
+  - [Add a Plotly plot](#add-a-plotly-plot)
   - [Add a scikit-learn pipeline](#add-a-scikit-learn-pipeline)
   - [Exit the Pipenv shell](#exit-the-pipenv-shell)
 - [Deploy to Heroku](#deploy-to-heroku)
@@ -385,6 +387,64 @@ html.Img(src='assets/imagefile.extension', className='img-fluid')
 ```
 
 You can size and position images [with Boostrap](https://getbootstrap.com/docs/4.0/content/images/) (for example, with the `img-fluid` class) or just [with CSS](https://dash.plot.ly/getting-started).
+
+### Add a matplotlib plot
+
+This includes visualization libraries that run on top of Matplotlib:
+- Pandas plotting
+- PDPBox
+- Seaborn
+- SHAP `force_plot` with `matplotlib=True` parameter
+
+**Option 1.** Take a screenshot / save the plot as an image, then follow the instructions to [add an image](#add-an-image).
+
+First, you should set matplotlib dots per inch to at least 150, so the text isn't fuzzy.
+
+```python
+import matplotlib.pyplot as plt
+plt.rcParams['figure.dpi'] = 150
+```
+
+**Option 2.** [Convert the matplotlib figure to a Plotly figure](https://plot.ly/matplotlib/modifying-a-matplotlib-figure/).
+
+Get it working in your notebook first. For example:
+
+```python
+%matplotlib inline
+import matplotlib.pyplot as plt
+
+matplotlib_figure = plt.figure()
+x = [10,  8, 13,  9, 11, 14,  6,  4, 12,  7,  5]
+y = [ 8,  6,  7,  8,  8,  9,  7,  4, 10,  4,  5]
+plt.scatter(x, y)
+```
+
+Then convert the matplotlib figure to a Plotly figure in your notebook, and test that it works:
+
+```python
+from plotly.tools import mpl_to_plotly
+plotly_figure = mpl_to_plotly(matplotlib_figure)
+plotly_figure.show()
+```
+
+After it works in your notebook, put it in your app, with a [Dash Graph component](https://dash.plot.ly/dash-core-components/graph):
+
+```python
+import dash_core_components as dcc
+import matplotlib.pyplot as plt
+from plotly.tools import mpl_to_plotly
+
+matplotlib_figure = plt.figure()
+x = [10,  8, 13,  9, 11, 14,  6,  4, 12,  7,  5]
+y = [ 8,  6,  7,  8,  8,  9,  7,  4, 10,  4,  5]
+plt.scatter(x, y)
+plotly_figure = mpl_to_plotly(matplotlib_figure)
+layout = dcc.Graph(id='my-graph-name', figure=plotly_figure)
+```
+
+### Add a Plotly plot
+
+Follow the instructions in the [official Dash tutorial](https://dash.plot.ly/).
 
 ### Add a scikit-learn pipeline
 
