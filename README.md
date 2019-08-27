@@ -446,7 +446,7 @@ layout = dcc.Graph(id='my-graph-name', figure=plotly_figure)
 
 ### Add a Plotly plot
 
-Follow the instructions in the [official Dash tutorial](https://dash.plot.ly/).
+Follow the instructions in the [official Dash tutorial](https://dash.plot.ly/), or see the example included in `pages/index.py`.
 
 ### Add a scikit-learn pipeline
 
