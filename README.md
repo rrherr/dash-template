@@ -109,7 +109,7 @@ Ctrl+C quits the app.
 
 ### See installed packages
 
-If you view `Pipfile` in any text editor software, you'll see output like this:
+`Pipfile` is a plain text file that lists the packages installed in the virtual environment. If you open the `Pipfile` file in any text editor software, you can view its contents. It will look something like this:
 
 ```
 [[source]]
