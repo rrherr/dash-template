@@ -79,18 +79,18 @@ pipenv shell
 You can verify your virtual environment is active:
 
 1. Look at your command prompt prefix
-2. Run the command `which jupyter`
+2. Run the command `which python`
 
-✅ You should see this:
+✅ You should see something like this:
 ```
-(your-repo-name) $ which jupyter
-/Users/you/.local/share/virtualenvs/your-repo-name/bin/jupyter
+(your-repo-name) $ which python
+/Users/you/.local/share/virtualenvs/your-repo-name.../bin/python
 ```
 
 ❌ Not this:
 ```
-(base) $ which jupyter
-/anaconda3/bin/jupyter
+(base) $ which python
+//anaconda3/bin/python
 ```
 
 ## How to
@@ -435,10 +435,9 @@ Follow the instructions in the [official Dash tutorial](https://dash.plot.ly/), 
 
 ### Add a scikit-learn pipeline
 
-1. [Activate the Pipenv shell](#activate-the-pipenv-shell)
-2. [Install packages](#install-packages) (scikit-learn, anything else you want)
-3. [Launch Jupyter Notebook](#launch-jupyter-notebook)
-4. In your notebook, fit your pipeline. For example:
+
+
+1. In your notebook, fit your pipeline. For example:
 
 ```python
 import category_encoders as ce
@@ -458,7 +457,7 @@ pipeline = make_pipeline(
 pipeline.fit(X, y)
 ```
 
-5. ["Pickle" the pipeline](https://scikit-learn.org/stable/modules/model_persistence.html):
+2. ["Pickle" the pipeline](https://scikit-learn.org/stable/modules/model_persistence.html):
 
 ```python
 from joblib import dump
@@ -484,23 +483,24 @@ scikit-learn==0.21.3
 category_encoders==2.0.0
 ```
 
-Install those exact version of those packages in your virtual environment. For example:
+4. [Activate the Pipenv shell](#activate-the-pipenv-shell). Then, install the exact versions of the packages you used in your pipeline. For example:
+
 ```
 pipenv install job==0.13.2
 pipenv install scikit-learn==0.21.3
 pipenv install category_encoders==2.0.0
 ```
 
-6. Copy the file `pipeline.joblib` into the `assets/` directory.
+5. Copy the file `pipeline.joblib` into the `assets/` directory.
 
-7. Edit the file, `pages/<pagename>.py`. Add this code at the top, to load the pipeline.
+6. Edit the file, `pages/<pagename>.py`. Add this code at the top, to load the pipeline.
 
 ```python
 from joblib import load
 pipeline = load('assets/pipeline.joblib')
 ```
 
-8. Add [Dash components](https://dash.plot.ly/dash-core-components) for inputs. For example:
+7. Add [Dash components](https://dash.plot.ly/dash-core-components) for inputs. For example:
 
 ```python
 column1 = dbc.Col(
@@ -534,7 +534,7 @@ column1 = dbc.Col(
 )
 ```
 
-9. Add Dash component for output. For example:
+8. Add Dash component for output. For example:
 
 ```python
 column2 = dbc.Col(
@@ -545,7 +545,7 @@ column2 = dbc.Col(
 )
 ```
 
-10. Add [callback](https://dash.plot.ly/getting-started-part-2) to update output based on inputs. For example:
+9. Add [callback](https://dash.plot.ly/getting-started-part-2) to update output based on inputs. For example:
 
 ```python
 import pandas as pd
@@ -572,9 +572,7 @@ exit
 
 1. Watch [DS - Data Engineering - Productization and Cloud - Web Application Deployment](https://www.youtube.com/watch?v=W75JAe7vFF0) (12 minute video from Training Kit).
 
-2. Sign up for Heroku at https://signup.heroku.com/ for a free account.
-
-> If you are registered with the GitHub Student Developer Pack, you are eligible to receive one free Hobby Dyno for up to 2 years (valued at $84/year). (App never sleeps) — https://www.heroku.com/github-students
+2. [Follow these instructions](https://docs.google.com/document/d/19hKH7brx03BU8jIyw7b3muKGcOYR86BtvKJezFF5VAo/edit) to get your free Heroku "Dyno" so your app never "sleeps."
 
 3. Download and install Heroku CLI (Command Line Interface) https://devcenter.heroku.com/articles/heroku-cli
 
