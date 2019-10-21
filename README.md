@@ -477,7 +477,7 @@ pipeline.fit(X, y)
 
 ```python
 from joblib import dump
-dump(pipeline, 'pipeline.joblib')
+dump(pipeline, 'pipeline.joblib', compress=True)
 ```
 
 6. Copy the file `pipeline.joblib` into the `assets/` directory.
