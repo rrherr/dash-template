@@ -480,6 +480,32 @@ from joblib import dump
 dump(pipeline, 'pipeline.joblib', compress=True)
 ```
 
+3. Get version numbers for every package you used in your pipeline. For example, you can use code like this:
+
+```python
+import joblib
+import sklearn
+import category_encoders as ce
+print(f'joblib=={joblib.__version__}')
+print(f'scikit-learn=={sklearn.__version__}')
+print(f'category_encoders=={ce.__version__}')
+```
+
+You’ll get output that will look similar to this:
+
+```
+joblib==0.13.2
+scikit-learn==0.21.3
+category_encoders==2.0.0
+```
+
+Install those exact version of those packages in your virtual environment. For example:
+```
+pipenv install job==0.13.2
+pipenv install scikit-learn==0.21.3
+pipenv install category_encoders==2.0.0
+```
+
 6. Copy the file `pipeline.joblib` into the `assets/` directory.
 
 7. Edit the file, `pages/<pagename>.py`. Add this code at the top, to load the pipeline.
