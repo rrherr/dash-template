@@ -58,8 +58,6 @@ Change directory into the repo:
 cd <repo>
 ```
 
-**_If you're on Windows_, delete the `Pipfile.lock` file.**
-
 Create a virtual environment for this project, and install dependencies from Pipfile:
 ```
 pipenv install
