@@ -10,7 +10,6 @@
   - [Run the app](#run-the-app)
   - [See installed packages](#see-installed-packages)
   - [Install packages](#install-packages)
-  - [Launch Jupyter Notebook](#launch-jupyter-notebook)
   - [Change the app name in the browser title bar](#change-the-app-name-in-the-browser-title-bar)
   - [Change the app name in the navigation bar](#change-the-app-name-in-the-navigation-bar)
   - [Change your name and contact info in the footer](#change-your-name-and-contact-info-in-the-footer)
@@ -122,27 +121,15 @@ dash = "*"
 dash-bootstrap-components = "*"
 gunicorn = "*"
 plotly = "*"
-jupyter = "*"
 pandas = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3"
 ```
 
 ### Install packages
 ```
 pipenv install <package>
-```
-
-For example, to install scikit-learn, category_encoders, xgboost, & [Dash DAQ](https://dash.plot.ly/dash-daq):
-```
-pipenv install scikit-learn category_encoders xgboost dash_daq
-```
-
-### Launch Jupyter Notebook
-First, don't forget to [activate the Pipenv shell](#activate-the-pipenv-shell). Then:
-```
-jupyter notebook
 ```
 
 ### Change the app name in the browser title bar
