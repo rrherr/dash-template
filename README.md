@@ -486,7 +486,7 @@ category_encoders==2.0.0
 4. [Activate the Pipenv shell](#activate-the-pipenv-shell). Then, install the exact versions of the packages you used in your pipeline. For example:
 
 ```
-pipenv install job==0.13.2
+pipenv install joblib==0.13.2
 pipenv install scikit-learn==0.21.3
 pipenv install category_encoders==2.0.0
 ```
