@@ -345,7 +345,7 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
         dbc.NavItem(dcc.Link('Insights', href='/insights', className='nav-link')), 
         dbc.NavItem(dcc.Link('Process', href='/process', className='nav-link')), 
-        dbc.NavItem(dcc.Link('Page Name', href='/pagename', classname='nav-link')), 
+        dbc.NavItem(dcc.Link('Page Name', href='/pagename', className='nav-link')), 
     ],
     ...
 )
